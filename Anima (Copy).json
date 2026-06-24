@@ -1,0 +1,182 @@
+{
+  "1": {
+    "inputs": {
+      "unet_name": "Anime\\anima-base-v1.0.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "2": {
+    "inputs": {
+      "seed": 556606134424015,
+      "steps": 12,
+      "cfg": 1,
+      "sampler_name": "er_sde",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "68",
+        0
+      ],
+      "positive": [
+        "3",
+        0
+      ],
+      "negative": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "53",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "3": {
+    "inputs": {
+      "text": [
+        "90",
+        0
+      ],
+      "clip": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "5": {
+    "inputs": {
+      "vae_name": "Qwen\\anima_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "(worst quality, low quality:1.4), (zombie, sketch, interlocked fingers, comic),\n(bad anatomy), (deformed), (disfigured), (bad proportions), (extra limbs), (cloned face), (missing legs), (missing arms), (extra legs), (extra arms), (fused fingers), (too many fingers), (long neck),\n(text, signature, watermark, username, artist name, logo, copyright name, title, date:1.4),\nlowres, bad hands, error, missing fingers, extra digit, fewer fingers, cropped, jpeg artifacts, blurry, mutation, body horror, multiple breasts, mutated hands, bad feet, fused feet, poorly drawn hands, poorly drawn face,\n3d, realistic, photorealistic, lip, nose",
+      "clip": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "2",
+        0
+      ],
+      "vae": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "10": {
+    "inputs": {
+      "clip_name": "Qwen\\qwen_3_06b_base.safetensors",
+      "type": "lumina2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "23": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "39": {
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "PreviewImageOutputNnegret",
+    "_meta": {
+      "title": "预览图像输出 nnegret"
+    }
+  },
+  "53": {
+    "inputs": {
+      "width": 832,
+      "height": 1216,
+      "batch_size": 1
+    },
+    "class_type": "EmptySD3LatentImage",
+    "_meta": {
+      "title": "空Latent图像（SD3）"
+    }
+  },
+  "68": {
+    "inputs": {
+      "lora_list_json": "[{\"name\":\"anima-turbo-lora-v0.2.safetensors\",\"strength_model\":0.8,\"enabled\":true}]",
+      "×  anima-turbo-lora-v0.2": null,
+      "   Strength": 0.8,
+      "打开 LoRA 选择器": null,
+      "model": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "AnimaMultiLoraLoader",
+    "_meta": {
+      "title": "Anima 多 LoRA 加载器"
+    }
+  },
+  "90": {
+    "inputs": {
+      "string_a": "masterpiece, best quality, good quality, very aesthetic, @hara \\(harayutaka\\), @hiroki \\(yyqw7151\\), highres,1 gril，1girl, cat ears, red eyes, purple eyes, mole under eye, long hair, black hair, hime cut, ",
+      "string_b": [
+        "93",
+        0
+      ],
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "连接"
+    }
+  },
+  "93": {
+    "inputs": {
+      "value": ""
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "字符串（多行）"
+    }
+  }
+}
