@@ -1,0 +1,2 @@
+# Ignore raw high-resolution pose renders to prevent repo bloat
+images/pose_raw/
